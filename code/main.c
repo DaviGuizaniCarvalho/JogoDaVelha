@@ -7,15 +7,15 @@ int main(int argc, char const *argv[])
 
     do
     {
-        printf("+--------------------------------");
-        printf("|              MENU              ");
-        printf("+--------------------------------");
-        printf("| 1 |                            ");
-        printf("| 2 |                            ");
-        printf("| 3 |                            ");
-        printf("| 4 |                            ");
-        printf("| 0 | Sair                       ");
-        printf("+--------------------------------");
+        printf("\n +--------------------------------+");
+        printf("\n |              MENU              |");
+        printf("\n +--------------------------------+");
+        printf("\n | 1 |                            |");
+        printf("\n | 2 |                            |");
+        printf("\n | 3 |                            |");
+        printf("\n | 4 |                            |");
+        printf("\n | 0 | Sair                       |");
+        printf("\n +--------------------------------+");
 
         do
         {

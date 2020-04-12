@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <conio.h>
+#include "./libs/game/main.c"
 
 int main(int argc, char const *argv[])
 {

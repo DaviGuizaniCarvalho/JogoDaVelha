@@ -1,6 +1,8 @@
 #include <stdlib.h>
 #include "../bool/main.c"
 
+#define TAM_TAB 3
+
 typedef struct posicao
 {
     int x;
@@ -9,7 +11,7 @@ typedef struct posicao
 
 typedef struct tabuleiro
 {
-    char tabuleiro[3][3];
+    char tabuleiro[TAM_TAB][TAM_TAB];
 } Tab;
 
 /*
@@ -36,8 +38,8 @@ Bool limparTabuleiro(Tab *tab)
     if (tab == NULL)
         return false;
     
-    for (int i = 0; i < 3; i++)
-        for (int j = 0; j < 3; j++)
+    for (int i = 0; i < TAM_TAB; i++)
+        for (int j = 0; j < TAM_TAB; j++)
             tab -> tabuleiro[i][j] = ' ';
     
     return true;
@@ -61,10 +63,10 @@ Bool fazerJogada(Tab *tab, Pos pos, char jogador)
     if (!(jogador == 'X' || jogador == 'x' || jogador == 'O' || jogador == 'o'))
         return false;
     
-    if (!(pos.x >= 1 && pos.x <= 3))
+    if (!(pos.x >= 1 && pos.x <= TAM_TAB))
         return false;
     
-    if (!(pos.y >= 1 && pos.y <= 3))
+    if (!(pos.y >= 1 && pos.y <= TAM_TAB))
         return false;
     
     if (tab -> tabuleiro[pos.x - 1][pos.y - 1] == ' ')
@@ -110,8 +112,8 @@ char ababou(Tab *tab)
         (tab -> tabuleiro[0][2] == 'O' && tab -> tabuleiro[1][1] == 'O' && tab -> tabuleiro[2][0] == 'O'))
             return 'O';
 
-    for (int i = 0; i < 3; i++)
-        for (int j = 0; j < 3; j++)
+    for (int i = 0; i < TAM_TAB; i++)
+        for (int j = 0; j < TAM_TAB; j++)
             if (tab -> tabuleiro[i][j] == ' ')
                 return 'N';
 

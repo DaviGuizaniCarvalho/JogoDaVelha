@@ -201,3 +201,18 @@ Bool marcarPlacar(Plac *placar, char jogador)
     
     return true;
 }
+
+/*
+ * Função para imprimir o placar
+ * 
+ * param placar: placar do jogo
+*/
+
+void imprimePlacar(Plac placar)
+{
+    printf("\n\n +-----+-----+-----+");
+    printf("\n |  X  |  V  |  O  |");
+    printf("\n +-----+-----+-----+");
+    printf("\n | %03d | %03d | %03d |", placar.x, placar.v, placar.o);
+    printf("\n +-----+-----+-----+\n");
+}

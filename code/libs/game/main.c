@@ -177,5 +177,18 @@ Bool imprimeTabuleiro(Tab *tab)
 */
 Bool marcarPlacar(Plac *placar, char jogador)
 {
-
+    if (placar == NULL)
+        return false;
+    
+    if (!(jogador == 'X' || jogador == 'O' || jogador == 'V'))
+        return false;
+    
+    if (jogador == 'X')
+        placar -> x += 1;
+    else if (jogador == 'O')
+        placar -> o += 1;
+    else
+        placar -> v += 1;
+    
+    return true;
 }

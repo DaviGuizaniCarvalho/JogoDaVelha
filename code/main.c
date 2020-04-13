@@ -2,6 +2,8 @@
 #include <conio.h>
 #include "./libs/game/main.c"
 
+#define limparTela() system("cls")
+
 int main(int argc, char const *argv[])
 {
     char opcao, vez, quem_ganhou;
@@ -9,6 +11,8 @@ int main(int argc, char const *argv[])
     Tab tabuleiro;
     Pos pos;
     Plac placar;
+
+    zerarPlacar(&placar);
 
     do
     {
@@ -26,10 +30,11 @@ int main(int argc, char const *argv[])
             opcao = getch();
         } while (!(opcao >= '0' && opcao <= '4'));
 
+        limparTela();
+
         if (opcao == '1')
         {
             limparTabuleiro(&tabuleiro);
-            zerarPlacar(&placar);
             
             if (jogos % 2 == 0)
                 vez = 'X';
@@ -45,6 +50,8 @@ int main(int argc, char const *argv[])
                 printf("\n Coluna: ");
                 pos.y = getche() - 48;
 
+                limparTela();
+
                 if (!fazerJogada(&tabuleiro, pos, vez))
                     continue;
 
@@ -55,17 +62,22 @@ int main(int argc, char const *argv[])
 
             marcarPlacar(&placar, quem_ganhou);
 
+            printf("\n   Fim de Jogo!");
+            imprimeTabuleiro(&tabuleiro);
+            imprimePlacar(placar);
+
             jogos += 1;
         }
 
         else if (opcao == '2')
         {
-
+            imprimePlacar(placar);
         }
 
         else if (opcao == '3')
         {
-
+            zerarPlacar(&placar);
+            imprimePlacar(placar);
         }
 
     } while (opcao != '0');

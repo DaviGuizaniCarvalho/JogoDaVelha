@@ -1,12 +1,13 @@
 #include <stdlib.h>
+#include <stdio.h>
 #include "../bool/main.c"
 
 #define TAM_TAB 3
 
 typedef struct posicao
 {
-    int x;
-    int y;
+    short int x;
+    short int y;
 } Pos;
 
 typedef struct tabuleiro
@@ -69,9 +70,9 @@ Bool fazerJogada(Tab *tab, Pos pos, char jogador)
     if (!(pos.y >= 1 && pos.y <= TAM_TAB))
         return false;
     
-    if (tab -> tabuleiro[pos.x - 1][pos.y - 1] == ' ')
+    if (tab -> tabuleiro[pos.x - 1][pos.y - 1] != ' ')
         return false;
-    
+        
     tab -> tabuleiro[pos.x - 1][pos.y - 1] = (jogador == 'X' || jogador == 'x') ? 'X' : 'O';
     
     return true;
@@ -135,6 +136,22 @@ Bool mudarVez(char *jogador)
 
     if (jogador[0] == 'N')
         return false;
+    
+    return true;
+}
+
+/*
+ * Função para imprimir o tabuleiro do jogo
+ * 
+ * param tab: ponteiro para Tab
+*/
+Bool imprimeTabuleiro(Tab *tab)
+{
+    if (tab == NULL)
+        return false;
+
+    for (int i = 0; i < TAM_TAB; i++)
+        printf("\n %c | %c | %c", tab -> tabuleiro[i][0], tab -> tabuleiro[i][1], tab -> tabuleiro[i][2]);
     
     return true;
 }

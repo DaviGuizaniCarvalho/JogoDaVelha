@@ -4,7 +4,7 @@
 
 int main(int argc, char const *argv[])
 {
-    char opcao, vez, posXY[2];
+    char opcao, vez, posXY[2], terminou;
     int jogos = 0;
     Tab *tabuleiro = criarTabuleiro();
     Pos pos;
@@ -32,13 +32,31 @@ int main(int argc, char const *argv[])
         if (opcao == '1')
         {
             limparTabuleiro(tabuleiro);
+            
+            if (jogos % 2 == 0)
+                vez = 'X';
+            else
+                vez = 'O';
+            
             do
             {
-                scanf(" %s", posXY);
-                
-                scanf(" %s", posXY);
-                fazerJogada(tabuleiro, pos, vez);
-            } while (acabou(tabuleiro) == 'N');
+                imprimeTabuleiro(tabuleiro);
+
+                printf("\n jogador %c sua vez.\n\n posX: ", vez);
+                scanf(" %[^\n]s", posXY);
+                pos.x = atoi(posXY);
+
+                printf(" posY: ");
+                scanf(" %[^\n]s", posXY);
+                pos.y = atoi(posXY);
+
+                if (!fazerJogada(tabuleiro, pos, vez))
+                    continue;
+
+                mudarVez(&vez);
+
+                terminou = acabou(tabuleiro);
+            } while (terminou == 'N');
         }
 
         else if (opcao == '2')

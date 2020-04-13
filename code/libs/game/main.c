@@ -67,10 +67,10 @@ Bool fazerJogada(Tab *tab, Pos pos, char jogador)
     if (!(pos.y >= 1 && pos.y <= 3))
         return false;
     
-    if (tab -> tabuleiro[pos.x][pos.y] == ' ')
+    if (tab -> tabuleiro[pos.x - 1][pos.y - 1] == ' ')
         return false;
     
-    tab -> tabuleiro[pos.x][pos.y] = (jogador == 'X' || jogador == 'x') ? 'X' : 'O';
+    tab -> tabuleiro[pos.x - 1][pos.y - 1] = (jogador == 'X' || jogador == 'x') ? 'X' : 'O';
     
     return true;
 }

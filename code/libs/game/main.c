@@ -87,7 +87,7 @@ Bool fazerJogada(Tab *tab, Pos pos, char jogador)
  * return O: se jogador O venceu
  * return V: se empatou
 */
-char ababou(Tab *tab)
+char acabou(Tab *tab)
 {
     if (tab == NULL)
         return 'N';
@@ -118,4 +118,23 @@ char ababou(Tab *tab)
                 return 'N';
 
     return 'V';
+}
+
+/*
+ * Função para mudar entre jogadores X ou O
+ * 
+ * param jogador: ponteiro para char (X ou O)
+ * 
+ * return true: se foi possivel mudar de jogador
+ * return false: se não foi possivel mudar
+*/
+Bool mudarVez(char *jogador)
+{
+    jogador[0] = (jogador[0] == 'X') ? 'O': 
+                 (jogador[0] == 'O') ? 'X': 'N';
+
+    if (jogador[0] == 'N')
+        return false;
+    
+    return true;
 }

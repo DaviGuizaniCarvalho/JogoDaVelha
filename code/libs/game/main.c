@@ -74,3 +74,18 @@ Bool fazerJogada(Tab *tab, Pos pos, char jogador)
     
     return true;
 }
+
+/*
+ * Função para verificar se o jogo terminou
+ * 
+ * param tab: ponteiro para Tab
+ * 
+ * return N: se não acabou
+ * return X: se jogador X venceu
+ * return O: se jogador O venceu
+ * return V: se empatou
+*/
+char ababou(Tab *tab)
+{
+    
+}

@@ -4,10 +4,11 @@
 
 int main(int argc, char const *argv[])
 {
-    char opcao, vez, posXY[2], terminou;
+    char opcao, vez, posXY[2], quem_ganhou;
     int jogos = 0;
     Tab *tabuleiro = criarTabuleiro();
     Pos pos;
+    Plac placar;
 
     if (tabuleiro == NULL)
         return 1;
@@ -55,8 +56,10 @@ int main(int argc, char const *argv[])
 
                 mudarVez(&vez);
 
-                terminou = acabou(tabuleiro);
-            } while (terminou == 'N');
+                quem_ganhou = acabou(tabuleiro);
+            } while (quem_ganhou == 'N');
+
+            marcarPlacar(&placar, quem_ganhou);
 
             jogos += 1;
         }

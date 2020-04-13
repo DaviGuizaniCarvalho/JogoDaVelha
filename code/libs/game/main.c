@@ -4,6 +4,13 @@
 
 #define TAM_TAB 3
 
+typedef struct placar
+{
+    unsigned short int x;
+    unsigned short int o;
+    unsigned short int v;
+} Plac;
+
 typedef struct posicao
 {
     short int x;
@@ -160,4 +167,15 @@ Bool imprimeTabuleiro(Tab *tab)
     }
     
     return true;
+}
+
+/*
+ * Função para marcar + 1 ponto no placar
+ * 
+ * param placar: ponteiro para Plac
+ * param jogador: qual jogador marcar o placar
+*/
+Bool marcarPlacar(Plac *placar, char jogador)
+{
+
 }

@@ -170,6 +170,26 @@ Bool imprimeTabuleiro(Tab *tab)
 }
 
 /*
+ * Função para zerar o placar do jogo
+ * 
+ * param placar: ponteiro para Plac
+ * 
+ * return true: se conseguiu zerar o placar
+ * return false: se não conseguiu zerar o placar
+*/
+Bool zerarPlacar(Plac *placar)
+{
+    if (placar == NULL)
+        return false;
+    
+    placar -> x = 0;
+    placar -> o = 0;
+    placar -> v = 0;
+
+    return true;
+}
+
+/*
  * Função para marcar + 1 ponto no placar
  * 
  * param placar: ponteiro para Plac

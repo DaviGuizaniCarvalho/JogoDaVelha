@@ -72,7 +72,7 @@ Bool fazerJogada(Tab *tab, Pos pos, char jogador)
     
     if (tab -> tabuleiro[pos.x - 1][pos.y - 1] != ' ')
         return false;
-        
+
     tab -> tabuleiro[pos.x - 1][pos.y - 1] = (jogador == 'X' || jogador == 'x') ? 'X' : 'O';
     
     return true;
@@ -150,8 +150,14 @@ Bool imprimeTabuleiro(Tab *tab)
     if (tab == NULL)
         return false;
 
+    printf("\n\n     1   2   3");
+    printf("\n   +---+---+---+");
+
     for (int i = 0; i < TAM_TAB; i++)
-        printf("\n %c | %c | %c", tab -> tabuleiro[i][0], tab -> tabuleiro[i][1], tab -> tabuleiro[i][2]);
+    {
+        printf("\n %d | %c | %c | %c |", i + 1, tab -> tabuleiro[i][0], tab -> tabuleiro[i][1], tab -> tabuleiro[i][2]);
+        printf("\n   +---+---+---+");
+    }
     
     return true;
 }

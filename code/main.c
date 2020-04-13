@@ -42,11 +42,11 @@ int main(int argc, char const *argv[])
             {
                 imprimeTabuleiro(tabuleiro);
 
-                printf("\n jogador %c sua vez.\n\n posX: ", vez);
+                printf("\n\n jogador %c sua vez.\n\n  Linha: ", vez);
                 scanf(" %[^\n]s", posXY);
                 pos.x = atoi(posXY);
 
-                printf(" posY: ");
+                printf(" Coluna: ");
                 scanf(" %[^\n]s", posXY);
                 pos.y = atoi(posXY);
 
@@ -57,6 +57,8 @@ int main(int argc, char const *argv[])
 
                 terminou = acabou(tabuleiro);
             } while (terminou == 'N');
+
+            jogos += 1;
         }
 
         else if (opcao == '2')

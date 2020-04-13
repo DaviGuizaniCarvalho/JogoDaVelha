@@ -49,6 +49,9 @@ Bool limparTabuleiro(Tab *tab)
  * param tab: ponteiro para Tab
  * param pos: posicao a ser jogada
  * param jogador: jogador da vez, X = 1, O = 2
+ * 
+ * return true: se conseguiu preencher a posição
+ * return false: se não conseguiu preencher a posição
 */
 Bool fazerJogada(Tab *tab, Pos pos, char jogador)
 {

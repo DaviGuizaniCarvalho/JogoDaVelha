@@ -87,5 +87,33 @@ Bool fazerJogada(Tab *tab, Pos pos, char jogador)
 */
 char ababou(Tab *tab)
 {
+    if (tab == NULL)
+        return 'N';
     
+    if ((tab -> tabuleiro[0][0] == 'X' && tab -> tabuleiro[0][1] == 'X' && tab -> tabuleiro[0][2] == 'X') ||
+        (tab -> tabuleiro[1][0] == 'X' && tab -> tabuleiro[1][1] == 'X' && tab -> tabuleiro[1][2] == 'X') ||
+        (tab -> tabuleiro[2][0] == 'X' && tab -> tabuleiro[2][1] == 'X' && tab -> tabuleiro[2][2] == 'X') ||
+        (tab -> tabuleiro[0][0] == 'X' && tab -> tabuleiro[1][0] == 'X' && tab -> tabuleiro[2][0] == 'X') ||
+        (tab -> tabuleiro[0][1] == 'X' && tab -> tabuleiro[1][1] == 'X' && tab -> tabuleiro[2][1] == 'X') ||
+        (tab -> tabuleiro[0][2] == 'X' && tab -> tabuleiro[1][2] == 'X' && tab -> tabuleiro[2][2] == 'X') ||
+        (tab -> tabuleiro[0][0] == 'X' && tab -> tabuleiro[1][1] == 'X' && tab -> tabuleiro[2][2] == 'X') ||
+        (tab -> tabuleiro[0][2] == 'X' && tab -> tabuleiro[1][1] == 'X' && tab -> tabuleiro[2][0] == 'X'))
+            return 'X';
+    
+    if ((tab -> tabuleiro[0][0] == 'O' && tab -> tabuleiro[0][1] == 'O' && tab -> tabuleiro[0][2] == 'O') ||
+        (tab -> tabuleiro[1][0] == 'O' && tab -> tabuleiro[1][1] == 'O' && tab -> tabuleiro[1][2] == 'O') ||
+        (tab -> tabuleiro[2][0] == 'O' && tab -> tabuleiro[2][1] == 'O' && tab -> tabuleiro[2][2] == 'O') ||
+        (tab -> tabuleiro[0][0] == 'O' && tab -> tabuleiro[1][0] == 'O' && tab -> tabuleiro[2][0] == 'O') ||
+        (tab -> tabuleiro[0][1] == 'O' && tab -> tabuleiro[1][1] == 'O' && tab -> tabuleiro[2][1] == 'O') ||
+        (tab -> tabuleiro[0][2] == 'O' && tab -> tabuleiro[1][2] == 'O' && tab -> tabuleiro[2][2] == 'O') ||
+        (tab -> tabuleiro[0][0] == 'O' && tab -> tabuleiro[1][1] == 'O' && tab -> tabuleiro[2][2] == 'O') ||
+        (tab -> tabuleiro[0][2] == 'O' && tab -> tabuleiro[1][1] == 'O' && tab -> tabuleiro[2][0] == 'O'))
+            return 'O';
+
+    for (int i = 0; i < 3; i++)
+        for (int j = 0; j < 3; j++)
+            if (tab -> tabuleiro[i][j] == ' ')
+                return 'N';
+
+    return 'V';
 }

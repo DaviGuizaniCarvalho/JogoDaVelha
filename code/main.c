@@ -4,14 +4,11 @@
 
 int main(int argc, char const *argv[])
 {
-    char opcao, vez, posXY[2], quem_ganhou;
+    char opcao, vez, quem_ganhou;
     int jogos = 0;
-    Tab *tabuleiro = criarTabuleiro();
+    Tab tabuleiro;
     Pos pos;
     Plac placar;
-
-    if (tabuleiro == NULL)
-        return 1;
 
     do
     {
@@ -19,9 +16,8 @@ int main(int argc, char const *argv[])
         printf("\n |              MENU              |");
         printf("\n +---+----------------------------+");
         printf("\n | 1 | Jogar                      |");
-        printf("\n | 2 |                            |");
-        printf("\n | 3 |                            |");
-        printf("\n | 4 |                            |");
+        printf("\n | 2 | Exibir Placar              |");
+        printf("\n | 3 | Zerar Placar               |");
         printf("\n | 0 | Sair                       |");
         printf("\n +---+----------------------------+");
 
@@ -32,7 +28,8 @@ int main(int argc, char const *argv[])
 
         if (opcao == '1')
         {
-            limparTabuleiro(tabuleiro);
+            limparTabuleiro(&tabuleiro);
+            zerarPlacar(&placar);
             
             if (jogos % 2 == 0)
                 vez = 'X';
@@ -41,22 +38,19 @@ int main(int argc, char const *argv[])
             
             do
             {
-                imprimeTabuleiro(tabuleiro);
+                imprimeTabuleiro(&tabuleiro);
 
                 printf("\n\n jogador %c sua vez.\n\n  Linha: ", vez);
-                scanf(" %[^\n]s", posXY);
-                pos.x = atoi(posXY);
+                pos.x = getche() - 48;
+                printf("\n Coluna: ");
+                pos.y = getche() - 48;
 
-                printf(" Coluna: ");
-                scanf(" %[^\n]s", posXY);
-                pos.y = atoi(posXY);
-
-                if (!fazerJogada(tabuleiro, pos, vez))
+                if (!fazerJogada(&tabuleiro, pos, vez))
                     continue;
 
                 mudarVez(&vez);
 
-                quem_ganhou = acabou(tabuleiro);
+                quem_ganhou = acabou(&tabuleiro);
             } while (quem_ganhou == 'N');
 
             marcarPlacar(&placar, quem_ganhou);
@@ -70,11 +64,6 @@ int main(int argc, char const *argv[])
         }
 
         else if (opcao == '3')
-        {
-
-        }
-
-        else if (opcao == '4')
         {
 
         }

@@ -23,17 +23,6 @@ typedef struct tabuleiro
 } Tab;
 
 /*
- * Função para criar um novo tabuleiro
- * 
- * return Tab *: se conseguiu criar o tabuleiro
- * return NULL: se não conseguiu criar o tabuleiro
-*/
-Tab *criarTabuleiro()
-{
-    return (Tab *) malloc(sizeof(Tab));
-}
-
-/*
  * Função para colocar todas as casas do tabuleiro como espaço vazio
  * 
  * param tab: ponteiro para Tab

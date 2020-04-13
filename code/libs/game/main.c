@@ -207,7 +207,6 @@ Bool marcarPlacar(Plac *placar, char jogador)
  * 
  * param placar: placar do jogo
 */
-
 void imprimePlacar(Plac placar)
 {
     printf("\n\n +-----+-----+-----+");

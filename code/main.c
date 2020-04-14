@@ -43,6 +43,8 @@ int main(int argc, char const *argv[])
             
             do
             {
+                quem_ganhou = 'N';
+                
                 imprimeTabuleiro(&tabuleiro);
 
                 printf("\n\n jogador %c sua vez.\n\n  Linha: ", vez);
